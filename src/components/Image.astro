@@ -1,0 +1,45 @@
+---
+interface Props {
+  id: string;
+  tags: string[];
+}
+
+const {id, tags} = Astro.props;
+---
+<div class="card">
+  <a href=`${id}.png`><img src=`${id}.png` /></a>
+  <div class="tags">
+    {tags.map((tag) => <a href={tag} class="tag">{tag}</a>)}
+  </div>
+</div>
+
+<style lang="scss">
+  .card {
+    margin: 4px;
+    padding: 4px;
+    border: 1px #2F3336 solid;
+    
+    img {
+      display: block;
+      max-width: 100%;
+    }
+    .tags {
+      display: inline-block;
+      padding: 4px 0;
+      .tag {
+        margin: 2px;
+        padding: 0 4px;
+        background: #588D3A;
+        color: #ffffff;
+        text-decoration: none;
+        font-weight: bold;
+      }
+    }
+    @media (min-width: 640px) {
+    img {
+      max-width: unset;
+      max-height: 420px;
+    }
+  }
+  }
+</style>

@@ -1,4 +1,6 @@
 ---
+import Image from "../components/Image.astro";
+import pepe from "./pepe.json";
 ---
 
 <html lang="en">
@@ -10,6 +12,37 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
-	</body>
+		<header>
+      <h1>pepe.town</h1>
+    </header>
+    <main>
+      {pepe.map((peepo) => <Image {...peepo} /> )}
+    </main>
+  </body>
 </html>
+
+<style lang="scss">
+  body {
+    background: #000000;
+  }
+  header {
+    h1 {
+      color: #ffffff;
+      text-align: center;
+      font-size: 2rem;
+    }
+  }
+
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 4px;
+  }
+
+  @media (min-width: 640px) {
+    main {
+      width: 80%;
+      margin: 0 auto;
+    }
+  }
+</style>

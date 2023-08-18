@@ -7,7 +7,7 @@ interface Props {
 const {id, tags} = Astro.props;
 ---
 <div class="card">
-  <a href=`${id}.png`><img src=`/${id}.png` /></a>
+  <a href=`/${id}.png`><img src=`/${id}.png` /></a>
   <div class="tags">
     {tags.map((tag) => <a href=`/${tag}/` class="tag">{tag}</a>)}
   </div>

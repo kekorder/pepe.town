@@ -1,0 +1,24 @@
+---
+import Images from "../layouts/Images.astro";
+import Image from "../components/Image.astro";
+import pepe from "./pepe.json";
+
+export function getStaticPaths() { 
+  const uniqueTags = new Set();
+
+  pepe.forEach(item => {
+    item.tags.forEach(tag => {
+      uniqueTags.add(tag);
+    });
+  });
+
+  return Array.from(uniqueTags).map(tag => {
+    return {params: {slug: tag}};
+  })
+};
+const { slug } = Astro.params;
+---
+<Images>
+  {pepe.filter(pepe => pepe.tags.includes(slug)).map((peepo) => <Image {...peepo} /> )}
+</Images>
+

@@ -1,47 +1,21 @@
-# Astro Starter Kit: Minimal
+# pepe.town
 
+Collecting pepe to build the rarest collection to date.
+
+# adding pepe
+
+1. Before adding your amazing pepe images make sure it's not already in the collection, filter by tags to check if it already exists.
+2. Rename your pepe to a uuidv4 (uuidgen command on linux) and make the extension png.
+3. Upload the new file to [this](https://github.com/kekorder/pepe.town/tree/master/public) location on github.
+4. Now locate the following [file](https://github.com/kekorder/pepe.town/blob/master/src/pages/pepe.json).
+5. Add the following lines at the bottom and make sure it is valid json (use this [tool](https://duckduckgo.com/?q=json+validator))
+
+```json
+  {
+    "id": "", # uuid of the specific file
+    "tags": [ # tags you feel are apropriate to the pepe
+      "",
+      ""
+    ]
+  },
 ```
-npm create astro@latest -- --template minimal
-```
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/minimal)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/minimal)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/minimal/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
-
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
-
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
-
-Any static assets, like images, can be placed in the `public/` directory.
-
-## 🧞 Commands
-
-All commands are run from the root of the project, from a terminal:
-
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:3000`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).

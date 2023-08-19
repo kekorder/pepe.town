@@ -2,12 +2,19 @@
 interface Props {
   id: string;
   tags: string[];
+  extension: string;
 }
 
-const {id, tags} = Astro.props;
+const {id, tags, extension = "png" } = Astro.props;
 ---
 <div class="card">
-  <a href=`/${id}.png`><img src=`/${id}.png` /></a>
+  <a href=`/${id}.${extension}`>
+  {extension === "mp4" ?
+    <video src=`/${id}.${extension}` />
+    :
+    <img src=`/${id}.${extension}` />
+  }
+  </a>
   <div class="tags">
     {tags.map((tag) => <a href=`/${tag}/` class="tag">{tag}</a>)}
   </div>
@@ -19,12 +26,13 @@ const {id, tags} = Astro.props;
     padding: 4px;
     border: 1px #2F3336 solid;
     
-    img {
+    img, video {
       display: block;
       max-width: 100%;
     }
     .tags {
       display: inline-block;
+      margin-top: 4px;
       padding: 4px 0;
       .tag {
         margin: 2px;
@@ -36,9 +44,9 @@ const {id, tags} = Astro.props;
       }
     }
     @media (min-width: 640px) {
-    img {
+    img, video {
       max-width: unset;
-      max-height: 420px;
+      height: 420px;
     }
   }
   }

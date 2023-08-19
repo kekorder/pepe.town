@@ -17,8 +17,10 @@ export function getStaticPaths() {
   })
 };
 const { slug } = Astro.params;
+
+let pepe2 = pepe.filter(pepe => pepe.tags.includes(slug));
 ---
-<Images>
+<Images count={pepe2.length}>
   {pepe.filter(pepe => pepe.tags.includes(slug)).map((peepo) => <Image {...peepo} /> )}
 </Images>
 

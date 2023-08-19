@@ -1,3 +1,10 @@
+---
+interface Props {
+  count: number;
+}
+
+const {count} = Astro.props;
+---
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
@@ -9,6 +16,7 @@
 	<body>
 		<header>
       <a href="/">pepe.town</a>
+      <span>count: {count}</span>
     </header>
     <main>
       <slot />
@@ -30,7 +38,13 @@
       text-align: center;
       font-size: 2rem;
       font-weight: bold;
+    }
 
+    span {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      color: #ffffff;
     }
   }
   main {

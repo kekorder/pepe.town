@@ -3,7 +3,7 @@ import Images from "../layouts/Images.astro";
 import Image from "../components/Image.astro";
 import pepe from "./pepe.json";
 ---
-<Images>
+<Images count={pepe.length}>
   {pepe.map((peepo) => <Image {...peepo} /> )}
 </Images>
 

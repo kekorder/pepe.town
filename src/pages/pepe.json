@@ -1,5 +1,13 @@
 [
   {
+    "id": "065bb021-43c5-466f-abf9-c0d7b60d965a",
+    "tags": [
+      "rain",
+      "sad"
+    ],
+    "extension": "gif"
+  },
+  {
     "id": "7a6008ec-59f6-443e-8e59-df318cafbbbf",
     "tags": [
       "beach",
@@ -33,6 +41,14 @@
       "movie",
       "drive"
     ]
+  },
+  {
+    "id": "af862bdf-e62c-4565-95d3-60c857539110",
+    "tags": [
+      "cool",
+      "ashbie"
+    ],
+    "extension": "mp4"
   },
   {
     "id": "267bbf93-7ee5-4b69-8fde-c1210c02bf2d",

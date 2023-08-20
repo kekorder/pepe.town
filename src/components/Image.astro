@@ -12,7 +12,7 @@ const {id, tags, extension = "png" } = Astro.props;
   {extension === "mp4" ?
     <video src=`/${id}.${extension}` />
     :
-    <img src=`/${id}.${extension}` />
+    <img src=`/${id}.${extension}` loading="lazy" />
   }
   </a>
   <div class="tags">

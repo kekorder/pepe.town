@@ -1,9 +1,23 @@
 [
   {
+    "id": "9e07cb8d-1121-4efb-ad3d-1f0315403f6b",
+    "tags": [
+      "happy",
+      "opossum"
+    ]
+  },
+  {
     "id": "8701298a-bbaa-4295-91ee-610bd792abb5",
     "tags": [
       "coffee",
       "sunshine"
+    ]
+  },
+  {
+    "id": "05bbd1a8-8d37-48c2-94bb-31c518d906da",
+    "tags": [
+      "sun",
+      "coffee"
     ]
   },
   {
@@ -71,6 +85,12 @@
     ]
   },
   {
+    "id": "4ba08640-5a93-4b26-9cd0-62697087594c",
+    "tags": [
+      "bathroom"
+    ]
+  },
+  {
     "id": "4b00178d-24bb-4ca2-9a30-3ef63ed2b15b",
     "tags": [
       "nature"
@@ -101,6 +121,13 @@
     "tags": [
       "adventure",
       "knight"
+    ]
+  },
+  {
+    "id": "2ddebb2c-bfdc-435c-8590-90eba68b408f",
+    "tags": [
+      "nature",
+      "alligator"
     ]
   },
   {

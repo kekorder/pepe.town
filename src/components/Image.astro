@@ -9,10 +9,10 @@ const {id, tags, extension = "png" } = Astro.props;
 ---
 <div class="card">
   <a href=`/${id}.${extension}`>
-  {["png", "gif"].includes(extension) ?
-    <img src=`/${id}.${extension}` loading="lazy" />
-    :
+  {["mp4", "mov"].includes(extension) ?
     <video src=`/${id}.${extension}` />
+    :
+    <img src=`/${id}.${extension}` loading="lazy" />
   }
   </a>
   <div class="tags">

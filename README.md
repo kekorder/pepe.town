@@ -19,3 +19,9 @@ Collecting pepe to build the rarest collection to date.
     ]
   },
 ```
+
+You can also use the util.py script.
+
+```bash
+python util.py <filename> <tag1> <tag2> <tag3>
+```

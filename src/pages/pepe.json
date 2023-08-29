@@ -74,6 +74,15 @@
     ]
   },
   {
+    "id": "be2fcb06-767f-4c33-ac32-b0234886b99f",
+    "tags": [
+      "movie",
+      "fight club",
+      "ashbie"
+    ],
+    "extension": "jpg"
+  },
+  {
     "id": "dd1b721e-d0c2-4400-b497-00e3dc6d8d98",
     "tags": [
       "christ"
@@ -112,6 +121,14 @@
     "tags": [
       "nature"
     ]
+  },
+  {
+    "id": "3a3c2a16-99a2-48b0-9dc4-09bb16b4e7be",
+    "tags": [
+      "snow",
+      "soldier"
+    ],
+    "extension": "jpg"
   },
   {
     "id": "eb58db6c-956b-4491-9d35-404113ba41fa",
@@ -159,6 +176,13 @@
       "movie",
       "drive"
     ]
+  },
+  {
+    "id": "965ed52f-a2f0-41aa-b521-87e53a02193c",
+    "tags": [
+      "snow"
+    ],
+    "extension": "jpg"
   },
   {
     "id": "4fd3e8bf-341a-4019-bcef-eb2301caf9a1",

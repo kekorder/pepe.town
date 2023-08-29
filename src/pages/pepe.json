@@ -1,5 +1,14 @@
 [
   {
+    "id": "6e869464-55e8-41ef-be5d-d0ffde924140",
+    "tags": [
+      "school",
+      "cry",
+      "sad"
+    ],
+    "extension": "jpg"
+  },
+  {
     "id": "9e07cb8d-1121-4efb-ad3d-1f0315403f6b",
     "tags": [
       "happy",
@@ -220,11 +229,11 @@
     ]
   },
   {
-   "id" : "c9b87c85-a05d-4bf8-8b97-fd08054cbdc1",
-   "tags": [
-     "king"
-   ],
-   "extension": "jpg"
+    "id": "c9b87c85-a05d-4bf8-8b97-fd08054cbdc1",
+    "tags": [
+      "king"
+    ],
+    "extension": "jpg"
   },
   {
     "id": "6c691057-2801-4c01-ab94-653d1ce17a60",

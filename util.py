@@ -24,7 +24,7 @@ def modify_json(file, tags):
 
     data: list = read_json()
 
-    rnd_index = random.randint(0, 3)
+    rnd_index = random.randint(0, len(data))
     data.insert(rnd_index, {"id": name, "tags": tags, "extension": ext})
     write_json(data)
 

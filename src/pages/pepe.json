@@ -9,6 +9,14 @@
     "extension": "jpg"
   },
   {
+    "id": "b2780973-334c-4524-ba84-61a15d3ebb6d",
+    "tags": [
+      "movie",
+      "joker"
+    ],
+    "extension": "jpg"
+  },
+  {
     "id": "9e07cb8d-1121-4efb-ad3d-1f0315403f6b",
     "tags": [
       "happy",
@@ -74,6 +82,14 @@
     ]
   },
   {
+    "id": "7492847c-d3b5-489d-813f-b9734ca335e5",
+    "tags": [
+      "camera",
+      "supermarket"
+    ],
+    "extension": "jpg"
+  },
+  {
     "id": "be2fcb06-767f-4c33-ac32-b0234886b99f",
     "tags": [
       "movie",
@@ -102,6 +118,14 @@
       "cactus",
       "cat"
     ]
+  },
+  {
+    "id": "420bef4e-6ee5-42fb-9418-293f3b4ccf5c",
+    "tags": [
+      "nature",
+      "kayak"
+    ],
+    "extension": "jpg"
   },
   {
     "id": "6e81bed0-be8c-4927-a6d8-5829cecde7f9",
@@ -142,6 +166,14 @@
       "movie",
       "once upon a time in hollywood"
     ]
+  },
+  {
+    "id": "90a5f122-90ff-4e1d-a10f-8366333ae1a5",
+    "tags": [
+      "night",
+      "soldier"
+    ],
+    "extension": "jpg"
   },
   {
     "id": "c6493e67-64ca-452c-a42a-377cebe9a8f7",

@@ -14,6 +14,13 @@
     "extension": "png"
   },
   {
+    "id": "b8e7c431-3a0b-4555-b979-deb4ffb9b9da",
+    "tags": [
+      "hug"
+    ],
+    "extension": "png"
+  },
+  {
     "id": "29a235d1-dec4-435e-91af-fc86ffb71c37",
     "tags": [
       "movie",
@@ -78,6 +85,13 @@
     "id": "211b7f2c-092f-4c52-8cae-99f671605f95",
     "tags": [
       "zombie"
+    ],
+    "extension": "png"
+  },
+  {
+    "id": "7d9e3117-8f1c-491c-be5f-b8651a4db0d3",
+    "tags": [
+      "sunset"
     ],
     "extension": "png"
   },
@@ -283,6 +297,14 @@
     "extension": "jpg"
   },
   {
+    "id": "94b099e3-18f5-4d75-a7a4-c1e47e813b58",
+    "tags": [
+      "alcohol",
+      "quote"
+    ],
+    "extension": "jpg"
+  },
+  {
     "id": "b0a07d82-3944-4543-af4d-8900512d62c3",
     "tags": [
       "monk",
@@ -482,6 +504,14 @@
     ]
   },
   {
+    "id": "c0e5d192-4d5c-45be-9477-3202ad964c35",
+    "tags": [
+      "nature",
+      "bear"
+    ],
+    "extension": "jpg"
+  },
+  {
     "id": "deef1528-7797-4ef2-a766-26207db30ee0",
     "tags": [
       "gm"
@@ -494,6 +524,14 @@
       "adventure",
       "knight"
     ]
+  },
+  {
+    "id": "43178f15-a71f-4e66-85e4-590a3ba11d6c",
+    "tags": [
+      "gym",
+      "ashbie"
+    ],
+    "extension": "png"
   },
   {
     "id": "2ddebb2c-bfdc-435c-8590-90eba68b408f",
@@ -730,6 +768,13 @@
     "id": "e926b3b5-1948-4d09-9986-8125eabce901",
     "tags": [
       "ghost"
+    ],
+    "extension": "jpg"
+  },
+  {
+    "id": "a8c19a94-312a-46b4-827a-2ab3ef0f8fbb",
+    "tags": [
+      "gm"
     ],
     "extension": "jpg"
   },

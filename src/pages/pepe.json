@@ -89,6 +89,13 @@
     ]
   },
   {
+    "id": "3a70c82d-346e-48d3-a376-30f46340daa0",
+    "tags": [
+      "gym"
+    ],
+    "extension": "jpg"
+  },
+  {
     "id": "b0a07d82-3944-4543-af4d-8900512d62c3",
     "tags": [
       "monk",
@@ -170,6 +177,14 @@
     "extension": "jpg"
   },
   {
+    "id": "a496e293-a21c-4bbe-bbe1-c2498700da0a",
+    "tags": [
+      "movie",
+      "american psycho"
+    ],
+    "extension": "jpg"
+  },
+  {
     "id": "eb58db6c-956b-4491-9d35-404113ba41fa",
     "tags": [
       "fort"
@@ -228,6 +243,14 @@
     "id": "965ed52f-a2f0-41aa-b521-87e53a02193c",
     "tags": [
       "snow"
+    ],
+    "extension": "jpg"
+  },
+  {
+    "id": "7b8aa914-9fa9-4beb-a276-2dbd12e97f04",
+    "tags": [
+      "cat",
+      "swing"
     ],
     "extension": "jpg"
   },
@@ -303,6 +326,13 @@
     "id": "c9b87c85-a05d-4bf8-8b97-fd08054cbdc1",
     "tags": [
       "king"
+    ],
+    "extension": "jpg"
+  },
+  {
+    "id": "e926b3b5-1948-4d09-9986-8125eabce901",
+    "tags": [
+      "ghost"
     ],
     "extension": "jpg"
   },

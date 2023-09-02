@@ -53,15 +53,19 @@ def folder(path):
     ]
 
     for file in files:
+        print("file:", os.path.join(path, file))
         subprocess.run(f"chafa -d 2 --size 64 {os.path.join(path, file)}", shell=True)
         add = input("add: ")
         if add == "y":
             tags = input("tags: ")
             new_file = move(os.path.join(path, file))
             modify_json(new_file, [tag.strip() for tag in tags.split(",")])
-        else:
+        elif add == "n":
             print("removed file:", os.path.join(path, file))
             os.remove(os.path.join(path, file))
+        else:
+            print("incorrect input")
+            break
 
 
 if __name__ == "__main__":

@@ -97,20 +97,20 @@ class GitHubAPI:
 	# 	ref_update_resp.raise_for_status()
 	# 	print(f"Committed and pushed changes with commit SHA: {commit_sha}")
 
-def create_pull_request(self, head, base, title):
-	url = f"{self.base_url}/pulls"
-	data = {
-		'head': head,
-		'base': base,
-		'title': title,
-	}
-	response = requests.post(url, headers=self.headers, json=data)
-	if response.status_code == 201:
-		print('Pull request created successfully!')
-		print('URL:', response.json()['html_url'])
-	else:
-		print('Error:', response.status_code)
-		print(response.text)
+	def create_pull_request(self, head, base, title):
+		url = f"{self.base_url}/pulls"
+		data = {
+			'head': head,
+			'base': base,
+			'title': title,
+		}
+		response = requests.post(url, headers=self.headers, json=data)
+		if response.status_code == 201:
+			print('Pull request created successfully!')
+			print('URL:', response.json()['html_url'])
+		else:
+			print('Error:', response.status_code)
+			print(response.text)
 
 class FileMetadataHandler:
 	def __init__(self, json_file_path, error_label_widget):

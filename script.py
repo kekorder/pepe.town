@@ -4,6 +4,7 @@ import requests
 import shutil
 import uuid
 import random
+import chardet
 import cv2
 from customtkinter import CTk, CTkImage, CTkLabel, CTkButton, CTkEntry, CTkToplevel, filedialog
 from PIL import Image, ImageTk, ImageSequence

@@ -818,6 +818,15 @@
     ]
   },
   {
+    "id": "c05e034b-1790-4d49-9052-b20e859764a2",
+    "tags": [
+      "trump",
+      "cheese",
+      "mugshot"
+    ],
+    "extension": "png"
+  },
+  {
     "id": "c0e5d192-4d5c-45be-9477-3202ad964c35",
     "tags": [
       "nature",
@@ -1125,6 +1134,15 @@
     "tags": [
       "gn",
       "skeleton"
+    ],
+    "extension": "jpg"
+  },
+  {
+    "id": "31633268-9fd8-4161-a0e8-df1d7905632a",
+    "tags": [
+      "reading",
+      "newspaper",
+      "journal"
     ],
     "extension": "jpg"
   },

@@ -311,7 +311,7 @@ class MediaApp:
 		os.system("git push")
 		# paths = [os.path.join("public", f) for f in os.listdir("public") if os.path.isfile(os.path.join("public", f))]
 		# self.github_api.commit_and_push_github(token, "Oriza", "pepe.town", "Testing stuff", paths)
-		self.github_api.create_pull_request("kekorder", "pepe.town", "main", "main", "Manually Created PR", "Triggered PR from the app.", token)
+		self.github_api.create_pull_request(self.github_api.base_url, "Oriza:master", "PR from script", "PR from script yes")
 
 	def select_directory(self):
 		current_directory = os.getcwd()
@@ -410,9 +410,9 @@ class MediaApp:
 		self.entry.delete(0, 'end')
 		self.close_video_if_needed()
 		self.show_next()
-		if (self.index + 1) % 10 == 0:
-			token = os.environ.get('PEPETOWN_TOKEN')
-			self.github_api.create_pull_request("kekorder", "pepe.town", "main", "main", "Added 10 new images", "Added 10 new images", token)
+		# if (self.index + 1) % 10 == 0:
+			# token = os.environ.get('PEPETOWN_TOKEN')
+			# self.github_api.create_pull_request("kekorder", "pepe.town", "main", "main", "Added 10 new images", "Added 10 new images", token)
 
 	def process_file(self, tags):
 		self.close_video_if_needed()

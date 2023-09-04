@@ -145,24 +145,24 @@ class GitHubAPI:
 		self.base_url = f"https://api.github.com/repos/{owner}/{repo}"
 		self.fork_owner = fork_owner
 
-		def create_pull_request(self, branch_name, title):
-			url = f"{self.base_url}/pulls"
-			head = f"{self.fork_owner}:{branch_name}"
-			base = "master"
-			data = {
-				'head': head,
-				'base': base,
-				'title': title,
-			}
-			response = requests.post(url, headers=self.headers, json=data)
-			if response.status_code == 201:
-				print('Pull request created successfully!')
-				print('URL:', response.json()['html_url'])
-			else:
-				print('Error:', response.status_code)
-				print(response.text)
-				if response.status_code == 422:
-					print("Possible reason: Trying to create a PR with the same branch as source and destination.")
+	def create_pull_request(self, branch_name, title):
+		url = f"{self.base_url}/pulls"
+		head = f"{self.fork_owner}:{branch_name}"
+		base = "master"
+		data = {
+			'head': head,
+			'base': base,
+			'title': title,
+		}
+		response = requests.post(url, headers=self.headers, json=data)
+		if response.status_code == 201:
+			print('Pull request created successfully!')
+			print('URL:', response.json()['html_url'])
+		else:
+			print('Error:', response.status_code)
+			print(response.text)
+			if response.status_code == 422:
+				print("Possible reason: Trying to create a PR with the same branch as source and destination.")
 
 class MediaApp:
 	def __init__(self, root):

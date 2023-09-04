@@ -311,7 +311,7 @@ class MediaApp:
 		os.system("git push")
 		# paths = [os.path.join("public", f) for f in os.listdir("public") if os.path.isfile(os.path.join("public", f))]
 		# self.github_api.commit_and_push_github(token, "Oriza", "pepe.town", "Testing stuff", paths)
-		# create_pull_request("kekorder", "pepe.town", "main", "main", "Manually Created PR", "Triggered PR from the app.", token)
+		self.github_api.create_pull_request("kekorder", "pepe.town", "main", "main", "Manually Created PR", "Triggered PR from the app.", token)
 
 	def select_directory(self):
 		current_directory = os.getcwd()

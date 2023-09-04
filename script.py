@@ -11,107 +11,106 @@ from customtkinter import CTk, CTkImage, CTkLabel, CTkButton, CTkEntry, CTkTople
 from PIL import Image, ImageTk, ImageSequence
 
 class GitHubAPI:
-    def __init__(self, token, owner, repo):
-        self.headers = {
-            "Authorization": f"token {token}",
-            "Accept": "application/vnd.github.v3+json"
-        }
-        self.base_url = f"https://api.github.com/repos/{owner}/{repo}"
+	def __init__(self, token, owner, repo):
+		self.headers = {
+			"Authorization": f"token {token}",
+			"Accept": "application/vnd.github.v3+json"
+		}
+		self.base_url = f"https://api.github.com/repos/{owner}/{repo}"
 
-    def _print_request_response_details(self, response, data=None):
-        print("URL:", response.request.url)
-        print("Request Headers:", response.request.headers)
-        if data:
-            json_str = json.dumps(data)
-            payload_size = len(json_str.encode('utf-8'))
-            print(f"Payload size: {payload_size} bytes")
-        print("Response Status:", response.status_code)
-        print("Response Headers:", response.headers)
-        print("Response Content:", response.text)
+	# def _print_request_response_details(self, response, data=None):
+	# 	print("URL:", response.request.url)
+	# 	print("Request Headers:", response.request.headers)
+	# 	if data:
+	# 		json_str = json.dumps(data)
+	# 		payload_size = len(json_str.encode('utf-8'))
+	# 		print(f"Payload size: {payload_size} bytes")
+	# 	print("Response Status:", response.status_code)
+	# 	print("Response Headers:", response.headers)
+	# 	print("Response Content:", response.text)
 
-    def _get_latest_commit_details(self):
-        ref_resp = requests.get(f"{self.base_url}/git/ref/heads/master", headers=self.headers)
-        ref_resp.raise_for_status()
-        latest_commit_sha = ref_resp.json()["object"]["sha"]
-        commit_resp = requests.get(f"{self.base_url}/git/commits/{latest_commit_sha}", headers=self.headers)
-        commit_resp.raise_for_status()
-        return latest_commit_sha, commit_resp.json()["tree"]["sha"]
+	# def _get_latest_commit_details(self):
+	# 	ref_resp = requests.get(f"{self.base_url}/git/ref/heads/master", headers=self.headers)
+	# 	ref_resp.raise_for_status()
+	# 	latest_commit_sha = ref_resp.json()["object"]["sha"]
+	# 	commit_resp = requests.get(f"{self.base_url}/git/commits/{latest_commit_sha}", headers=self.headers)
+	# 	commit_resp.raise_for_status()
+	# 	return latest_commit_sha, commit_resp.json()["tree"]["sha"]
 
-    def _get_current_files(self, latest_tree_sha):
-        tree_resp = requests.get(f"{self.base_url}/git/trees/{latest_tree_sha}?recursive=1", headers=self.headers)
-        tree_resp.raise_for_status()
-        return {item["path"]: item["sha"] for item in tree_resp.json()["tree"] if item["type"] == "blob"}
+	# def _get_current_files(self, latest_tree_sha):
+	# 	tree_resp = requests.get(f"{self.base_url}/git/trees/{latest_tree_sha}?recursive=1", headers=self.headers)
+	# 	tree_resp.raise_for_status()
+	# 	return {item["path"]: item["sha"] for item in tree_resp.json()["tree"] if item["type"] == "blob"}
 
-    def _create_tree(self, paths, current_files, latest_tree_sha):
-        tree = []
-        for path in paths:
-            with open(path, 'rb') as f:
-                content = f.read()
-                blob_sha = hashlib.sha1(content).hexdigest()
+	# def _create_tree(self, paths, current_files, latest_tree_sha):
+	# 	tree = []
+	# 	for path in paths:
+	# 		with open(path, 'rb') as f:
+	# 			content = f.read()
+	# 			blob_sha = hashlib.sha1(content).hexdigest()
 
-                if path not in current_files or blob_sha != current_files[path]:
-                    encoded_content = base64.b64encode(content).decode('utf-8')
-                    tree.append({
-                        "path": path,
-                        "mode": "100644",
-                        "type": "blob",
-                        "content": encoded_content
-                    })
-        if not tree:
-            return None
+	# 			if path not in current_files or blob_sha != current_files[path]:
+	# 				encoded_content = base64.b64encode(content).decode('utf-8')
+	# 				tree.append({
+	# 					"path": path,
+	# 					"mode": "100644",
+	# 					"type": "blob",
+	# 					"content": encoded_content
+	# 				})
+	# 	if not tree:
+	# 		return None
 
-        tree_data = {
-            "base_tree": latest_tree_sha,
-            "tree": tree
-        }
-        tree_resp = requests.post(f"{self.base_url}/git/trees", headers=self.headers, json=tree_data)
-        self._print_request_response_details(tree_resp, tree_data)
-        tree_resp.raise_for_status()
-        return tree_resp.json()["sha"]
+	# 	tree_data = {
+	# 		"base_tree": latest_tree_sha,
+	# 		"tree": tree
+	# 	}
+	# 	tree_resp = requests.post(f"{self.base_url}/git/trees", headers=self.headers, json=tree_data)
+	# 	self._print_request_response_details(tree_resp, tree_data)
+	# 	tree_resp.raise_for_status()
+	# 	return tree_resp.json()["sha"]
 
-    def commit_and_push(self, commit_message, paths):
-        latest_commit_sha, latest_tree_sha = self._get_latest_commit_details()
-        current_files = self._get_current_files(latest_tree_sha)
-        tree_sha = self._create_tree(paths, current_files, latest_tree_sha)
+	# def commit_and_push(self, commit_message, paths):
+	# 	latest_commit_sha, latest_tree_sha = self._get_latest_commit_details()
+	# 	current_files = self._get_current_files(latest_tree_sha)
+	# 	tree_sha = self._create_tree(paths, current_files, latest_tree_sha)
 
-        if not tree_sha:
-            print("No new or modified files to commit.")
-            return
+	# 	if not tree_sha:
+	# 		print("No new or modified files to commit.")
+	# 		return
 
-        commit_data = {
-            "message": commit_message,
-            "parents": [latest_commit_sha],
-            "tree": tree_sha
-        }
-        commit_resp = requests.post(f"{self.base_url}/git/commits", headers=self.headers, json=commit_data)
-        self._print_request_response_details(commit_resp, commit_data)
-        commit_resp.raise_for_status()
-        commit_sha = commit_resp.json()["sha"]
+	# 	commit_data = {
+	# 		"message": commit_message,
+	# 		"parents": [latest_commit_sha],
+	# 		"tree": tree_sha
+	# 	}
+	# 	commit_resp = requests.post(f"{self.base_url}/git/commits", headers=self.headers, json=commit_data)
+	# 	self._print_request_response_details(commit_resp, commit_data)
+	# 	commit_resp.raise_for_status()
+	# 	commit_sha = commit_resp.json()["sha"]
 
-        # Update ref to point to new commit
-        ref_data = {
-            "sha": commit_sha
-        }
-        ref_update_resp = requests.patch(f"{self.base_url}/git/refs/heads/master", headers=self.headers, json=ref_data)
-        self._print_request_response_details(ref_update_resp, ref_data)
-        ref_update_resp.raise_for_status()
-        print(f"Committed and pushed changes with commit SHA: {commit_sha}")
+	# 	# Update ref to point to new commit
+	# 	ref_data = {
+	# 		"sha": commit_sha
+	# 	}
+	# 	ref_update_resp = requests.patch(f"{self.base_url}/git/refs/heads/master", headers=self.headers, json=ref_data)
+	# 	self._print_request_response_details(ref_update_resp, ref_data)
+	# 	ref_update_resp.raise_for_status()
+	# 	print(f"Committed and pushed changes with commit SHA: {commit_sha}")
 
-    def create_pull_request(self, base, head, title, body):
-        url = f"{self.base_url}/pulls"
-        data = {
-            'title': title,
-            'body': body,
-            'head': head,
-            'base': base,
-        }
-        response = requests.post(url, headers=self.headers, json=data)
-        if response.status_code == 201:
-            print('Pull request created successfully!')
-            print('URL:', response.json()['html_url'])
-        else:
-            print('Error:', response.status_code)
-            print(response.text)
+def create_pull_request(self, head, base, title):
+	url = f"{self.base_url}/pulls"
+	data = {
+		'head': head,
+		'base': base,
+		'title': title,
+	}
+	response = requests.post(url, headers=self.headers, json=data)
+	if response.status_code == 201:
+		print('Pull request created successfully!')
+		print('URL:', response.json()['html_url'])
+	else:
+		print('Error:', response.status_code)
+		print(response.text)
 
 class FileMetadataHandler:
 	def __init__(self, json_file_path, error_label_widget):
@@ -312,7 +311,8 @@ class MediaApp:
 		os.system("git push")
 		# paths = [os.path.join("public", f) for f in os.listdir("public") if os.path.isfile(os.path.join("public", f))]
 		# self.github_api.commit_and_push_github(token, "Oriza", "pepe.town", "Testing stuff", paths)
-		self.github_api.create_pull_request(self.github_api.base_url, "Oriza:master", "PR from script", "PR from script yes")
+		# self.github_api.create_pull_request(self.github_api.base_url, "Oriza:master", "PR from script", "PR from script yes")
+		self.github_api.create_pull_request("Oriza:master", "main", "PR from script")
 
 	def select_directory(self):
 		current_directory = os.getcwd()

@@ -4,7 +4,6 @@
     "tags": [
       "gamer",
       "computer",
-      "colorful",
       "coffee"
     ],
     "extension": "jpg"
@@ -531,8 +530,6 @@
   {
     "id": "aed09109-5361-4f29-b3d6-43f3ae82c9e9",
     "tags": [
-      "hack",
-      "hackerman",
       "matrix"
     ],
     "extension": "gif"
@@ -777,7 +774,8 @@
     "tags": [
       "space",
       "stars",
-      "sleepy"
+      "sleepy",
+      "night"
     ],
     "extension": "jpg"
   },
@@ -1152,7 +1150,7 @@
     "tags": [
       "reading",
       "newspaper",
-      "journal"
+      "news"
     ],
     "extension": "jpg"
   },
@@ -1190,14 +1188,6 @@
       "knight",
       "brave"
     ]
-  },
-  {
-    "id": "db31edbc-f3b7-4480-a3d9-295b710659e0",
-    "tags": [
-      "awkward",
-      "waiting"
-    ],
-    "extension": "jpg"
   },
   {
     "id": "ffa8873b-421c-4162-9496-e9b462eb5846",

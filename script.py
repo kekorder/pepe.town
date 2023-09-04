@@ -137,13 +137,16 @@ class InputValidator:
 		self.error_label_widget.configure(text=message, fg_color="red")
 
 class GitHubAPI:
-	def __init__(self, token, owner, repo, fork_owner):
+	def __init__(self, token, owner, repo, fork_owner, branch="master"):
 		self.headers = {
 			"Authorization": f"token {token}",
 			"Accept": "application/vnd.github.v3+json"
 		}
 		self.base_url = f"https://api.github.com/repos/{owner}/{repo}"
 		self.fork_owner = fork_owner
+		self.owner = owner
+		self.branch = branch
+		self.token = token
 
 	def create_pull_request(self, branch_name, title):
 		url = f"{self.base_url}/pulls"
@@ -171,7 +174,7 @@ class MediaApp:
 		json_path = os.path.join(self.base_dir, 'src', 'pages', 'pepe.json')
 		self.json_handler = FileMetadataHandler(json_path, self.error_label)
 		self.input_validator = InputValidator(self.entry, self.error_label)
-		self.github_api = GitHubAPI(self.token, "kekorder", "pepe.town", "Oriza")
+		self.github_api = GitHubAPI(self.token, "kekorder", "pepe.town", "Oriza", "images")
 
 
 	def initialize_variables(self, root):
@@ -231,16 +234,14 @@ class MediaApp:
 		self.root.bind("<Configure>", self.resize)
 
 	def create_pr(self):
-		token = os.environ.get('PEPETOWN_TOKEN')
-		if not token:
+		if not self.github_api.token:
 			self.show_error("Token not set in environment variables!")
 			return
-		branch_name = "images"  # you can generate unique names if needed
-		os.system(f"git checkout -b {branch_name}")
-		os.system("git add *")
-		os.system('git commit -m "testing stuff"')
-		os.system(f"git push origin {branch_name}")	
-		self.github_api.create_pull_request(f"kekorder:{branch_name}", "PR from script")
+		os.system(f"git checkout -b {self.github_api.branch}")
+		# os.system("git add *")
+		# os.system('git commit -m "testing stuff"')
+		# os.system(f"git push origin {self.github_api.branch}")	
+		self.github_api.create_pull_request(f"{self.github_api.owner}:{self.github_api.branch}", "10 new images")
 
 	def select_directory(self):
 		current_directory = os.getcwd()
@@ -286,7 +287,7 @@ class MediaApp:
 
 	def load_current_file(self):
 		self.cleanup()
-		# print(f"Loading file {self.media_files[self.index]} with index {self.index}")
+		print(f"Loading file {self.media_files[self.index]} with index {self.index}")
 		file_ext = self.get_file_extension()
 		if file_ext in ['mp4', 'avi']:
 			self.load_video()
@@ -339,9 +340,8 @@ class MediaApp:
 		self.entry.delete(0, 'end')
 		self.close_video_if_needed()
 		self.show_next()
-		# if (self.index + 1) % 10 == 0:
-			# token = os.environ.get('PEPETOWN_TOKEN')
-			# self.github_api.create_pull_request("kekorder", "pepe.town", "main", "main", "Added 10 new images", "Added 10 new images", token)
+		if (self.index + 1) % 10 == 0:
+			self.github_api.create_pull_request(f"{self.github_api.owner}:{self.github_api.branch}", "10 new images")
 
 	def process_file(self, tags):
 		self.close_video_if_needed()

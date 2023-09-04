@@ -99,6 +99,10 @@ class GitHubAPI:
 
 	def create_pull_request(self, head, base, title):
 		url = f"{self.base_url}/pulls"
+		print("URL:", url)
+		print("head:", head)
+		print("base:", base)
+		print("title:", title)
 		data = {
 			'head': head,
 			'base': base,
@@ -312,7 +316,7 @@ class MediaApp:
 		# paths = [os.path.join("public", f) for f in os.listdir("public") if os.path.isfile(os.path.join("public", f))]
 		# self.github_api.commit_and_push_github(token, "Oriza", "pepe.town", "Testing stuff", paths)
 		# self.github_api.create_pull_request(self.github_api.base_url, "Oriza:master", "PR from script", "PR from script yes")
-		self.github_api.create_pull_request("Oriza:master", "main", "PR from script")
+		self.github_api.create_pull_request("Oriza:master", "master", "PR from script")
 
 	def select_directory(self):
 		current_directory = os.getcwd()

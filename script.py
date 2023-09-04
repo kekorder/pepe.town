@@ -249,6 +249,7 @@ class MediaApp:
 
 	def initialize_variables(self, root):
 		print("Initializing variables")
+		os.system("gituser personal")
 		self.root = root
 		self.media_files = []
 		self.base_dir = os.path.dirname(os.path.abspath(__file__))

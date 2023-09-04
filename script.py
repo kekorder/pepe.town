@@ -137,33 +137,32 @@ class InputValidator:
 		self.error_label_widget.configure(text=message, fg_color="red")
 
 class GitHubAPI:
-	def __init__(self, token, owner, repo):
+	def __init__(self, token, owner, repo, fork_owner):
 		self.headers = {
 			"Authorization": f"token {token}",
 			"Accept": "application/vnd.github.v3+json"
 		}
 		self.base_url = f"https://api.github.com/repos/{owner}/{repo}"
+		self.fork_owner = fork_owner
 
-	def create_pull_request(self, head, base, title):
-		url = f"{self.base_url}/pulls"
-		print("URL:", url)
-		print("head:", head)
-		print("base:", base)
-		print("title:", title)
-		data = {
-			'head': head,
-			'base': base,
-			'title': title,
-		}
-		response = requests.post(url, headers=self.headers, json=data)
-		if response.status_code == 201:
-			print('Pull request created successfully!')
-			print('URL:', response.json()['html_url'])
-		else:
-			print('Error:', response.status_code)
-			print(response.text)
-			if response.status_code == 422:
-				print("Possible reason: Trying to create a PR with the same branch as source and destination.")
+		def create_pull_request(self, branch_name, title):
+			url = f"{self.base_url}/pulls"
+			head = f"{self.fork_owner}:{branch_name}"
+			base = "master"
+			data = {
+				'head': head,
+				'base': base,
+				'title': title,
+			}
+			response = requests.post(url, headers=self.headers, json=data)
+			if response.status_code == 201:
+				print('Pull request created successfully!')
+				print('URL:', response.json()['html_url'])
+			else:
+				print('Error:', response.status_code)
+				print(response.text)
+				if response.status_code == 422:
+					print("Possible reason: Trying to create a PR with the same branch as source and destination.")
 
 class MediaApp:
 	def __init__(self, root):
@@ -172,13 +171,15 @@ class MediaApp:
 		json_path = os.path.join(self.base_dir, 'src', 'pages', 'pepe.json')
 		self.json_handler = FileMetadataHandler(json_path, self.error_label)
 		self.input_validator = InputValidator(self.entry, self.error_label)
-		self.github_api = GitHubAPI(os.environ.get('PEPETOWN_TOKEN'), "Oriza", "pepe.town")
+		self.github_api = GitHubAPI(self.token, "kekorder", "pepe.town", "Oriza")
+
 
 	def initialize_variables(self, root):
 		print("Initializing variables")
 		os.system("gituser personal")
 		self.root = root
 		self.media_files = []
+		self.token = os.environ.get('PEPETOWN_TOKEN')
 		self.base_dir = os.path.dirname(os.path.abspath(__file__))
 		self.index = 0
 		self.last_width = 0

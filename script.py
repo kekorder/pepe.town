@@ -240,8 +240,8 @@ class MediaApp:
 			return
 		os.system(f"git checkout -b {self.github_api.branch}")
 		os.system("git add *")
-		os.system('git commit -m "testing stuff"')
-		os.system(f"git push origin {self.github_api.branch}")	
+		os.system('git commit -m "10 new images!"')
+		os.system(f"git push")	
 		self.github_api.create_pull_request(f"{self.github_api.owner}:{self.github_api.branch}", "10 new images")
 
 	def select_directory(self):

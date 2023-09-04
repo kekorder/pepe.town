@@ -831,6 +831,14 @@
     ]
   },
   {
+    "id": "ebc0ecae-0c67-43cc-a955-2796e8ae58c9",
+    "tags": [
+      "croissant",
+      "french"
+    ],
+    "extension": "jpg"
+  },
+  {
     "id": "6093c5ff-f3b3-456f-8021-e270a2346789",
     "tags": [
       "space",
@@ -1079,6 +1087,14 @@
       "cry",
       "sad",
       "phone"
+    ],
+    "extension": "jpg"
+  },
+  {
+    "id": "6a7a9ec1-3212-4dc5-ad09-b0a8e1893be4",
+    "tags": [
+      "south park",
+      "cartoon"
     ],
     "extension": "jpg"
   },

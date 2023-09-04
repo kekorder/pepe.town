@@ -240,7 +240,7 @@ class MediaApp:
 		os.system("git add *")
 		os.system('git commit -m "testing stuff"')
 		os.system(f"git push origin {branch_name}")	
-		self.github_api.create_pull_request(f"kekorder:{branch_name}", "master", "PR from script")
+		self.github_api.create_pull_request(f"kekorder:{branch_name}", "PR from script")
 
 	def select_directory(self):
 		current_directory = os.getcwd()

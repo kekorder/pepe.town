@@ -185,6 +185,7 @@ class MediaApp:
 		self.token = os.environ.get('PEPETOWN_TOKEN')
 		self.base_dir = os.path.dirname(os.path.abspath(__file__))
 		self.index = 0
+		self.pr_limit = 10
 		self.last_width = 0
 		self.last_height = 0
 		self.is_video = False
@@ -238,9 +239,9 @@ class MediaApp:
 			self.show_error("Token not set in environment variables!")
 			return
 		os.system(f"git checkout -b {self.github_api.branch}")
-		# os.system("git add *")
-		# os.system('git commit -m "testing stuff"')
-		# os.system(f"git push origin {self.github_api.branch}")	
+		os.system("git add *")
+		os.system('git commit -m "10 new images!"')
+		os.system(f"git push")	
 		self.github_api.create_pull_request(f"{self.github_api.owner}:{self.github_api.branch}", "10 new images")
 
 	def select_directory(self):
@@ -340,8 +341,12 @@ class MediaApp:
 		self.entry.delete(0, 'end')
 		self.close_video_if_needed()
 		self.show_next()
-		if (self.index + 1) % 10 == 0:
+		self.pr_limit = 1
+		self.pr_limit -= 1
+		print("pr limit:", self.pr_limit)
+		if self.pr_limit == 0:
 			self.github_api.create_pull_request(f"{self.github_api.owner}:{self.github_api.branch}", "10 new images")
+			self.pr_limit = 10
 
 	def process_file(self, tags):
 		self.close_video_if_needed()

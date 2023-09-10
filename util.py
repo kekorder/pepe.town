@@ -54,7 +54,7 @@ def folder(path):
 
     for file in files:
         print("file:", os.path.join(path, file))
-        subprocess.run(f"chafa -d 2 --size 64 {os.path.join(path, file)}", shell=True)
+        subprocess.run(f"chafa -d 2 --size 69 {os.path.join(path, file)}", shell=True)
         add = input("add: ")
         if add == "y":
             tags = input("tags: ")

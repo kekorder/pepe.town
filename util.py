@@ -44,7 +44,7 @@ def move(file) -> str:
 def folder(path):
     files = os.listdir(path)
 
-    exts = [".jpg", ".jpeg", ".png", ".gif"]
+    exts = [".jpg", ".jpeg", ".png", ".gif", ".mp4"]
     files = [
         file
         for file in files
